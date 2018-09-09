@@ -13,7 +13,7 @@ services:
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
-  client:
+  web:
     build:
       context: ./client/
     command: npm start
