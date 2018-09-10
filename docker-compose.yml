@@ -1,8 +1,9 @@
 version: '2'
+
 services:
+
   server:
-    build:
-      context: ./server/
+    build: ./server/
     command: /usr/app/node_modules/.bin/nodemon src/index.js
     volumes:
       - ./server/:/usr/app
@@ -13,11 +14,11 @@ services:
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
+
   web:
     labels:
       shipyard.route: '/'
-    build:
-      context: ./client/
+    build: ./client/
     command: npm start
     volumes:
       - ./client/:/usr/app
@@ -26,3 +27,5 @@ services:
       - server
     ports:
       - "3000:3000"
+    environment:
+      - HOST=master.node-react-docker-compose.azlyth.shipyard.host
