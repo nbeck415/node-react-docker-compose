@@ -28,5 +28,4 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - HOST=master.node-react-docker-compose.azlyth.shipyard.host
-      - PORT=80
+      - DANGEROUSLY_DISABLE_HOST_CHECK=true
