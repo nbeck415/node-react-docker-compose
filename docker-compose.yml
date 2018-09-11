@@ -15,7 +15,7 @@ services:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
 
-  web:
+  client:
     labels:
       shipyard.route: '/'
     build: ./client/
@@ -27,5 +27,3 @@ services:
       - server
     ports:
       - "3000:3000"
-    environment:
-      - DANGEROUSLY_DISABLE_HOST_CHECK=true
