@@ -5,8 +5,6 @@ services:
   server:
     build: server/
     command: /usr/app/node_modules/.bin/nodemon src/index.js
-    volumes:
-      - ./server/:/usr/app
     ports:
       - "8080:8080"
     # env_file: ./server/.env # TODO - uncomment this to auto-load your .env file!
@@ -21,8 +19,6 @@ services:
     command: npm start
     environment:
       - DANGEROUSLY_DISABLE_HOST_CHECK=true
-    volumes:
-      - ./client/:/usr/app
     depends_on:
       - server
     ports:
